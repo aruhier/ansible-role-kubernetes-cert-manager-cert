@@ -1,0 +1,10 @@
+---
+
+- name: "Setup certificate {{ kubernetes_cert_manager_cert_name }}"
+  command: kubectl apply -f -
+  args:
+    stdin: "{{ item }}"
+  with_items:
+    - "{{ lookup('template', 'certificate.yml.j2') }}"
+
+# vim: set ts=2 sw=2:

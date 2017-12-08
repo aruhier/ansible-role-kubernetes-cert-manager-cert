@@ -1,0 +1,8 @@
+---
+
+kubernetes_cert_manager_cert_namespace: "default"
+
+kubernetes_cert_manager_cert_dns_names: []
+kubernetes_cert_manager_cert_acme_configs: []
+
+# vim: set ts=2 sw=2:

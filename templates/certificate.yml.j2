@@ -1,0 +1,15 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: {{ kubernetes_cert_manager_cert_name }}
+  namespace: {{ kubernetes_cert_manager_cert_namespace }}
+spec:
+  secretName: {{ kubernetes_cert_manager_cert_secret_name }}
+  issuerRef:
+    {{ kubernetes_cert_manager_cert_issuer_ref | to_yaml | indent(4) }}
+  commonName: {{ kubernetes_cert_manager_cert_common_name }}
+  dnsNames:
+    {{ kubernetes_cert_manager_cert_dns_names | to_yaml | indent(4) }}
+  acme:
+    config:
+    {{ kubernetes_cert_manager_cert_acme_configs | to_yaml | indent(4) }}
