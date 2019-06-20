@@ -10,6 +10,8 @@ spec:
   commonName: {{ kubernetes_cert_manager_cert_common_name }}
   dnsNames:
     {{ kubernetes_cert_manager_cert_dns_names | to_yaml | indent(4) }}
+{% if kubernetes_cert_manager_cert_acme_configs %}
   acme:
     config:
     {{ kubernetes_cert_manager_cert_acme_configs | to_yaml | indent(4) }}
+{% endif %}
